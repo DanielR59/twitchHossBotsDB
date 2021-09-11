@@ -4,7 +4,7 @@
 
 Intentamos tener actualizado el siguiente 
 [Google Sheets](https://docs.google.com/spreadsheets/d/1pr3CjSkHTXVd-i4Xa4jadwnaVCviuox8VYweWmkWOiw/edit?usp=sharing)
-con nombres del bot "Hoss00312" para generar el archivo *banlist.txt* que se usará con este [programa crado por *therealnagia*](https://github.com/therealnagia/twitchbanfromlist/releases) con [link de descarga directa para Windows](https://github.com/therealnagia/twitchbanfromlist/releases/download/v1.210910/twitchbanfromlist_210910_1955.zip)
+con nombres del bot "Hoss00312" para generar el archivo *banlist.txt* que se usará con este [programa creado por *therealnagia*](https://github.com/therealnagia/twitchbanfromlist/releases) con [link de descarga directa para Windows](https://github.com/therealnagia/twitchbanfromlist/releases/download/v1.210910/twitchbanfromlist_210910_1955.zip)
 
 
 [Link de descarga directo del archivo banlist.txt](https://downgit.github.io/#/home?url=https://github.com/DanielR59/twitchHossBotsDB/blob/main/banlist.txt)
