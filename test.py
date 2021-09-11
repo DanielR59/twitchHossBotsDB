@@ -12,14 +12,13 @@ DriveSheet = client.open("BotsHoss Twitch").sheet1.get_all_records(head=1) #Prim
 
 #Tomamos los datos unicamente del bot Hoss (actual atacante en Twitch)
 
-bots_names = []
+bots_names = set() #Evitamos duplicados
 for element in DriveSheet:
     aux = list(element.values())
     filtro = re.search("hoss(.*)",aux[0])
     if filtro:
-       bots_names.append(aux[0])
+       bots_names.add(aux[0])
 
-bots_names = set(bots_names) #Eliminamos duplicados
 bots_names = list(bots_names)
 bots_names.append("BANLISTEND")
 
