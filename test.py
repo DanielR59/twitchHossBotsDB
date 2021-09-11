@@ -5,7 +5,7 @@ scope = ["https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/drive.file",
         "https://www.googleapis.com/auth/drive"
 ]
-creds = ServiceAccountCredentials.from_json_keyfile_name("twitchbotshossprueba1-d8418a4d4c47.json",scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("GoogleDriveConfig.json",scope)
 client = gspread.authorize(creds)
 
 DriveSheet = client.open("BotsHoss Twitch").sheet1.get_all_records(head=1) #Primer Celda es encabezado
