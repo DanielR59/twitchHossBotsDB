@@ -20,6 +20,9 @@ for element in DriveSheet:
        bots_names.append(aux[0])
 
 bots_names = set(bots_names) #Eliminamos duplicados
+bots_names = list(bots_names)
+bots_names.append("BANLISTEND")
+
 #Escribimos el archivo final para el script
 with open("banlist.txt", 'w') as output:
     for row in bots_names:
