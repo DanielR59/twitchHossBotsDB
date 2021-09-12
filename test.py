@@ -15,8 +15,9 @@ DriveSheet = client.open("BotsHoss Twitch").sheet1.get_all_records(head=1) #Prim
 bots_names = set() #Evitamos duplicados
 for element in DriveSheet:
     aux = list(element.values())
-    filtro = re.search("hoss(.*)",aux[0])
-    if filtro:
+    filtro1 = re.search("hoss(.*)",aux[0])
+    filtro2 = re.search("h[0].*",aux[0])
+    if filtro1 or filtro2:
        bots_names.add(aux[0])
 
 bots_names = list(bots_names)
