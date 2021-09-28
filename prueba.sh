@@ -11,6 +11,6 @@ else
     echo "Actualizando los datos a Github :3"
     git add $1
     git commit -m "Actualizacion base de datos"
-    git push origin development
+    git push origin main
 
 fi
