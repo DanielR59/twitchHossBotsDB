@@ -8,7 +8,9 @@ con nombres del bot "Hoss00312" (en la primer columna) y otros bots (en la segun
 
 
 [Link de descarga directo del archivo banlist.txt](https://downgit.github.io/#/home?url=https://github.com/DanielR59/twitchHossBotsDB/blob/main/banlist.txt)
+
 [Link de descarga directo del archivo banlist_otrosBots.txt](https://downgit.github.io/#/home?url=https://github.com/DanielR59/twitchHossBotsDB/blob/main/banlist_otrosBots.txt)
+
 Video explicación en nuestro canal de Youtube [Vikingo informático](https://www.youtube.com/channel/UCOItBCYDUXxe0uU7HuJaRhQ)
 
 ## Requisitos
