@@ -1,30 +1,43 @@
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 import re
-scope = ["https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive.file",
-        "https://www.googleapis.com/auth/drive"
-]
-creds = ServiceAccountCredentials.from_json_keyfile_name("GoogleDriveConfig.json",scope)
-client = gspread.authorize(creds)
 
-DriveSheet = client.open("BotsHoss Twitch").sheet1.get_all_records(head=1) #Primer Celda es encabezado
+def read_bots_from_excel(client, google_sheet_column : int, filtros : list = []):
+    
+    DriveSheet = client.open("BotsHoss Twitch").sheet1.col_values(google_sheet_column)
+    DriveSheet.pop(0)
+    bots_names = set(DriveSheet) #Evitamos duplicados
+    if not filtros:
+        bots_names = list(bots_names)
+        bots_names.append("BANLISTEND")
+        return bots_names
 
-#Tomamos los datos unicamente del bot Hoss (actual atacante en Twitch)
+    final_list = []
+    for element in bots_names:      
+        for filtro in filtros:
+            re_match = re.search(filtro,element)
+            if re_match:
+                final_list.append(element)
+                break
+    final_list.append("BANLISTEND")
+    return final_list
 
-bots_names = set() #Evitamos duplicados
-for element in DriveSheet:
-    aux = list(element.values())
-    filtro1 = re.search("hoss(.*)",aux[0])
-    filtro2 = re.search("h[0].*",aux[0])
-    if filtro1 or filtro2:
-       bots_names.add(aux[0])
+def write_output(file : str , output_list : list):
+    with open(file,'w') as output:
+        for row in output_list:
+            output.write(str(row) + '\n')
 
-bots_names = list(bots_names)
-bots_names.append("BANLISTEND")
+if __name__ == '__main__':
 
-#Escribimos el archivo final para el script
-with open("banlist.txt", 'w') as output:
-    for row in bots_names:
-        output.write(str(row) + '\n')
+    scope = ["https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive"
+    ]
+    creds = ServiceAccountCredentials.from_json_keyfile_name("GoogleDriveConfig.json",scope)
+    client = gspread.authorize(creds)
 
+
+    bots_names = read_bots_from_excel(client, 1, ['hoss(.*)','h[0].*'])
+    bots_names2 = read_bots_from_excel(client, 2)
+    write_output("banlist.txt",bots_names)
+    write_output("banlist_otrosBots.txt",bots_names2)
